@@ -1,7 +1,11 @@
 package com.example.demo.student;
 import java.time.LocalDate;
 
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
+@Document(collection = "students")
 public class stu {
+    @Id
     private Long id;
     private String name;
     private String email;

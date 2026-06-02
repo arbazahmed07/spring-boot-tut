@@ -4,13 +4,18 @@ import java.time.LocalDate;
 import java.util.List;
 
 import org.springframework.stereotype.Service;
-
 @Service
 public class stuService {
-  
+    private final stuRepository stuRepository;
+
+    public stuService(stuRepository stuRepository) {
+        this.stuRepository = stuRepository;
+    }
+
     public List<stu> getStudents() {
-		return List.of(
-			new stu(1L, "John Doe", "john.doe@example.com", LocalDate.now(), 20)
-		);
+		return stuRepository.findAll();
 	}
+	   public stu addStudent(stu student) {
+        return stuRepository.save(student);
+    }
 }

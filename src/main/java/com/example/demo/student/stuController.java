@@ -3,7 +3,8 @@ package com.example.demo.student;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
-
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 
@@ -19,4 +20,8 @@ public class stuController {
     public List<stu> getStudents() {
            return stuService.getStudents();
 	}
+  @PostMapping
+    public stu addStudent(@RequestBody stu student) {
+        return stuService.addStudent(student);
+    }
 }
